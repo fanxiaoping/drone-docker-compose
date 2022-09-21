@@ -1,0 +1,6 @@
+FROM docker/compose
+
+ENV DOCKER_HOST=unix:///var/run/docker.sock
+
+ADD release/linux/amd64/drone-docker-compose /bin/
+ENTRYPOINT ["/usr/local/bin/dockerd-entrypoint.sh", "/bin/drone-docker-compose"]
